@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name">Tsaqif - 109</string>
+    <string name="labelapp">Pendaftaran</string>
+    <string name="jenis_kelamin">Jenis Kelamin</string>
+    <string name="agama">Agama</string>
+    <string name="review_movie">Review Movie</string>
+    <string name="btn_kembali">KEMBALI</string>
+    <string name="btn_daftar">DAFTAR</string>
+    <!--                                      -->
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="password_lagi">Masukkan Password Kembali</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome !"</string>
+
+    <!--                                                -->
+    <string name="empty_namaDepan">Nama Depan Harus Diisi</string>
+    <string name="empty_namaBelakang">Nama Belakang Harus Diisi</string>
+    <string name="empty_tempatLahir">Tempat Lahir Harus Diisi</string>
+    <string name="empty_tglLahir">Tanggal Lahir Harus Diisi</string>
+    <string name="empty_alamat">Alamat Harus Diisi</string>
+    <string name="empty_telepon">No. Telepon Harus Diisi</string>
+    <string name="empty_email">Email Harus Diisi</string>
+    <string name="empty_password">Password Harus Diisi</string>
+    <string name="empty_confirmPassword">Harap Isi Password Kembali</string>
+    <string name="invalid_email">Format Email Salah</string>
+    <string name="invalid_password">Panjang password minimal adalah 8 karakter
+        dengan angka, huruf besar, huruf kecil dan spesial karakter (seperti @#$%^*+=,.?:&amp;)</string>
+    <string name="invalid_confirmpassword">Password Tidak Sama</string>
+    <string name="login_failed">"Login failed"</string>
+</resources>
