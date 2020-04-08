@@ -197,6 +197,23 @@ public class MainActivity extends AppCompatActivity {
         alertDialog.show();
     }
 
+    public void pesanErrorAgama(){
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+        alertDialogBuilder.setTitle("Terjadi Kesalahan");
+        alertDialogBuilder
+                .setMessage("Mohon pilih agama")
+                .setIcon(R.mipmap.ic_launcher)
+                .setCancelable(false)
+                .setPositiveButton("Ya", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        return;
+                    }
+                });
+        AlertDialog alertDialog = alertDialogBuilder.create();
+        alertDialog.show();
+    }
+
 //    public void onRadioButtonClicked1(View view){
 //        boolean checked = ((RadioButton) view).isChecked();
 //        switch (view.getId()){
