@@ -152,13 +152,13 @@
                 android:orientation="horizontal">
 
                 <RadioButton
-                    android:id="@+id/rb_lk"
+                    android:id="@+id/lk"
                     android:layout_width="180dp"
                     android:layout_height="wrap_content"
                     android:textSize="14dp"
                     android:text="Laki-laki"/>
                 <RadioButton
-                    android:id="@+id/rb_pr"
+                    android:id="@+id/pr"
                     android:layout_width="180dp"
                     android:layout_height="wrap_content"
                     android:textSize="14dp"
@@ -194,7 +194,7 @@
                     android:layout_marginTop="8dp">
 
                     <RadioButton
-                        android:id="@+id/rb_islam"
+                        android:id="@+id/islam"
                         android:layout_width="165dp"
                         android:layout_height="wrap_content"
                         android:text="Islam"
@@ -202,7 +202,7 @@
                         android:padding="5dp" />
 
                     <RadioButton
-                        android:id="@+id/rb_katolik"
+                        android:id="@+id/katolik"
                         android:layout_width="165dp"
                         android:layout_height="wrap_content"
                         android:text="Katolik"
@@ -210,7 +210,7 @@
                         android:padding="5dp" />
 
                     <RadioButton
-                        android:id="@+id/rb_budha"
+                        android:id="@+id/budha"
                         android:layout_width="165dp"
                         android:layout_height="wrap_content"
                         android:text="Budha"
@@ -218,7 +218,7 @@
                         android:padding="5dp" />
 
                     <RadioButton
-                        android:id="@+id/rb_aliran_kepercayaan"
+                        android:id="@+id/aliran_kepercayaan"
                         android:layout_width="180dp"
                         android:layout_height="wrap_content"
                         android:text="Aliran Kepercayaan"
@@ -235,7 +235,7 @@
                     android:layout_marginEnd="5dp">
 
                     <RadioButton
-                        android:id="@+id/rb_kristen"
+                        android:id="@+id/kristen"
                         android:layout_width="165dp"
                         android:layout_height="wrap_content"
                         android:text="Kristen"
@@ -243,7 +243,7 @@
                         android:padding="5dp" />
 
                     <RadioButton
-                        android:id="@+id/rb_hindu"
+                        android:id="@+id/hindu"
                         android:layout_width="165dp"
                         android:layout_height="wrap_content"
                         android:text="Hindu"
@@ -251,7 +251,7 @@
                         android:padding="5dp" />
 
                     <RadioButton
-                        android:id="@+id/rb_konghucu"
+                        android:id="@+id/konghucu"
                         android:layout_width="165dp"
                         android:layout_height="wrap_content"
                         android:text="Konghucu"

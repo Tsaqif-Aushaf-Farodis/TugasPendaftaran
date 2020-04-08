@@ -26,7 +26,7 @@
     <string name="empty_confirmPassword">Harap Isi Password Kembali</string>
     <string name="invalid_email">Format Email Salah</string>
     <string name="invalid_password">Panjang password minimal adalah 8 karakter
-        dengan angka, huruf besar, huruf kecil dan spesial karakter (seperti @#$%^*+=,.?:&amp;)</string>
+        dengan angka, huruf besar dan huruf kecil</string>
     <string name="invalid_confirmpassword">Password Tidak Sama</string>
     <string name="login_failed">"Login failed"</string>
 </resources>

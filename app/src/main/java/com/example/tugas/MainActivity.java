@@ -1,11 +1,11 @@
 package com.example.tugas;
 
 import android.app.DatePickerDialog;
-import android.app.Dialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.util.Patterns;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
                     "(?=.*[A-Z])" +             //minimal 1 huruf besar
                     "(?=.*[a-z])" +             //minimal 1 huruf kecil
                     "(?=.*[0-9])" +             //minimal 1 digit angka
-                    "(?=.*[@#$%^&*+=,.?;:])" +  //minimal 1 special character
+//                    "(?=.*[@#$%^&*+=,.?;:])" +  //minimal 1 special character
                     ".{8,}" + "$");             //minimal 8 character
 
     Calendar myCalendar;
@@ -47,6 +47,8 @@ public class MainActivity extends AppCompatActivity {
     String namaDpn, namaBlkng, tempat, tanggal, alamat,
             jenisKelamin, agama, agama1, agama2, telp, email;
     RadioGroup rg_jk, rg_agama, rg_agama1, rg_agama2;
+    RadioButton rb_lk, rb_pr, rb_islam, rb_kristen, rb_katolik,
+            rb_hindu, rb_budha, rb_konghucu, rb_alKep;
     Button btn_kembali, btn_daftar;
     AwesomeValidation validation;
 
@@ -71,18 +73,27 @@ public class MainActivity extends AppCompatActivity {
         rg_agama1      = (RadioGroup) findViewById(R.id.group_agama1);
         rg_agama2      = (RadioGroup) findViewById(R.id.group_agama2);
 
+        rb_lk          = (RadioButton) findViewById(R.id.lk);
+        rb_pr          = (RadioButton) findViewById(R.id.pr);
+        rb_islam       = (RadioButton) findViewById(R.id.islam);
+        rb_kristen     = (RadioButton) findViewById(R.id.kristen);
+        rb_katolik     = (RadioButton) findViewById(R.id.katolik);
+        rb_hindu       = (RadioButton) findViewById(R.id.hindu);
+        rb_budha       = (RadioButton) findViewById(R.id.budha);
+        rb_alKep       = (RadioButton) findViewById(R.id.aliran_kepercayaan);
+
         btn_kembali    = (Button)findViewById(R.id.kembali);
         btn_daftar     = (Button)findViewById(R.id.daftar);
 
         //id di detail_pendaftaran.xml
-        tv_NamaDepan    = (TextView) findViewById(R.id.hasil_nmDepan);
-        tv_NamaBelakang = (TextView) findViewById(R.id.hasil_nmBelakang);
-        tv_TTL          = (TextView) findViewById(R.id.hasil_ttl);
-        tv_Alamat       = (TextView) findViewById(R.id.hasil_alamat);
-        tv_JK           = (TextView) findViewById(R.id.hasil_jk);
-        tv_Agama        = (TextView) findViewById(R.id.hasil_agama);
-        tv_NoTelp       = (TextView) findViewById(R.id.hasil_noTelp);
-        tv_Email        = (TextView) findViewById(R.id.hasil_email);
+//        tv_NamaDepan    = (TextView) findViewById(R.id.hasil_nmDepan);
+//        tv_NamaBelakang = (TextView) findViewById(R.id.hasil_nmBelakang);
+//        tv_TTL          = (TextView) findViewById(R.id.hasil_ttl);
+//        tv_Alamat       = (TextView) findViewById(R.id.hasil_alamat);
+//        tv_JK           = (TextView) findViewById(R.id.hasil_jk);
+//        tv_Agama        = (TextView) findViewById(R.id.hasil_agama);
+//        tv_NoTelp       = (TextView) findViewById(R.id.hasil_noTelp);
+//        tv_Email        = (TextView) findViewById(R.id.hasil_email);
 
         //mengambil data dari editText di activity_main
         namaDpn         = et_namadpn.getText().toString();
@@ -90,12 +101,11 @@ public class MainActivity extends AppCompatActivity {
         tempat          = et_tmpt.getText().toString();
         tanggal         = et_tgl.getText().toString();
         alamat          = et_alamat.getText().toString();
-        jenisKelamin    = rg_jk.getTransitionName();
-        agama           = rg_agama.getTransitionName();
-        agama1          = rg_agama1.getTransitionName();
-        agama2          = rg_agama2.getTransitionName();
         telp            = et_telp.getText().toString();
         email           = et_email.getText().toString();
+
+        jenisKelamin = "";
+        agama        = "";
 
         myCalendar      = Calendar.getInstance();
 
@@ -170,46 +180,62 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+//    public void onRadioButtonClicked1(View view){
+//        boolean checked = ((RadioButton) view).isChecked();
+//        switch (view.getId()){
+//            case R.id.rb_lk:
+//                if (checked){
+//                    jenisKelamin = "Laki-laki";
+//                }
+//                break;
+//            case R.id.rb_pr:
+//                if (checked){
+//                    jenisKelamin = "Perempuan";
+//                }
+//                break;
+//        }
+//    }
+
     public void onRadioButtonClicked(View view){
         boolean checked = ((RadioButton) view).isChecked();
         switch (view.getId()){
-            case R.id.rb_islam:
+            case R.id.islam:
                 if (checked){
                     agama = "Islam";
                     rg_agama2.clearCheck();
                 }
                 break;
-            case R.id.rb_kristen:
+            case R.id.kristen:
                 if (checked){
                     agama = "Kristen";
                     rg_agama1.clearCheck();
                 }
                 break;
-            case R.id.rb_katolik:
+            case R.id.katolik:
                 if (checked){
                     agama = "Katholik";
                     rg_agama2.clearCheck();
                 }
                 break;
-            case R.id.rb_hindu:
+            case R.id.hindu:
                 if (checked){
                     agama = "Hindu";
                     rg_agama1.clearCheck();
                 }
                 break;
-            case R.id.rb_budha:
+            case R.id.budha:
                 if (checked){
                     agama = "BUdha";
                     rg_agama2.clearCheck();
                 }
                 break;
-            case R.id.rb_konghucu:
+            case R.id.konghucu:
                 if (checked){
                     agama = "Konghucu";
                     rg_agama1.clearCheck();
                 }
                 break;
-            case R.id.rb_aliran_kepercayaan:
+            case R.id.aliran_kepercayaan:
                 if (checked){
                     agama = "Aliran Kepercayaan";
                     rg_agama2.clearCheck();
@@ -252,11 +278,25 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void showDetailPendaftaran(){
-        final Dialog dialog = new Dialog(this);
-        //judul dialog
+        final AlertDialog dialog = new AlertDialog.Builder(this).create();
+        LayoutInflater inflater = getLayoutInflater();
+        View dialogView = inflater.inflate(R.layout.detail_pendaftaran, null);
+
+        dialog.setView(dialogView);
+        dialog.setCancelable(true);
+        dialog.setIcon(R.mipmap.ic_launcher);
         dialog.setTitle("Detail Pendaftaran");
-        //memilih layout
         dialog.setContentView(R.layout.detail_pendaftaran);
+
+        tv_NamaDepan = dialogView.findViewById(R.id.hasil_nmDepan);
+        tv_NamaBelakang = dialogView.findViewById(R.id.hasil_nmBelakang);
+        tv_TTL = dialogView.findViewById(R.id.hasil_ttl);
+        tv_Alamat = dialogView.findViewById(R.id.hasil_alamat);
+        tv_JK = dialogView.findViewById(R.id.hasil_jk);
+        tv_Agama = dialogView.findViewById(R.id.hasil_agama);
+        tv_NoTelp = dialogView.findViewById(R.id.hasil_noTelp);
+        tv_Email = dialogView.findViewById(R.id.hasil_email);
+
         //merubah data textView di detail_pendaftaran menjadi isi dari editText
         tv_NamaDepan.setText(namaDpn);
         tv_NamaBelakang.setText(namaBlkng);
@@ -266,17 +306,18 @@ public class MainActivity extends AppCompatActivity {
         tv_Agama.setText(agama);
         tv_NoTelp.setText(telp);
         tv_Email.setText(email);
+
         //agar dialog tidak hilang saat di click di area luar dialog
         dialog.setCanceledOnTouchOutside(false);
         DisplayMetrics metrics = getResources().getDisplayMetrics();
         int width = metrics.widthPixels;
         dialog.getWindow().setLayout((7 * width) / 7, LinearLayout.LayoutParams.WRAP_CONTENT);
-        Button btnKeluar = (Button) dialog.findViewById(R.id.keluar);
-        Button btnOke = (Button) dialog.findViewById(R.id.oke);
+        Button btnKeluar = (Button) dialogView.findViewById(R.id.keluar);
+        Button btnOke = (Button) dialogView.findViewById(R.id.oke);
         btnOke.setOnClickListener(new View.OnClickListener(){
             @Override
             public  void onClick(View v) {
-                Toast.makeText(MainActivity.this, "Data saved", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "Pendaftaran Selesai", Toast.LENGTH_SHORT).show();
                 dialog.dismiss();
             }
         });
