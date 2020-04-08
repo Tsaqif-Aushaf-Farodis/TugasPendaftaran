@@ -166,6 +166,7 @@ public class MainActivity extends AppCompatActivity {
                     showDialog();
                 }
                 else{
+                    validasiRadioGroup();
                     Toast.makeText(getApplicationContext(),
                             "Mohon Isi Data Yang Kosong",Toast.LENGTH_SHORT).show();
                 }
@@ -178,6 +179,15 @@ public class MainActivity extends AppCompatActivity {
                 System.exit(0);
             }
         });
+    }
+
+    public void validasiRadioGroup(){
+        if (jenisKelamin.equals("")){
+            pesanErrorJK();
+        }
+        else if (agama.equals("")){
+            pesanErrorAgama();
+        }
     }
 
     public void pesanErrorJK(){
