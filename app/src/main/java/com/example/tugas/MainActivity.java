@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -43,8 +44,9 @@ public class MainActivity extends AppCompatActivity {
             tv_JK, tv_Agama, tv_NoTelp, tv_Email;
     EditText et_namadpn, et_namablkng, et_tmpt, et_tgl,
             et_alamat, et_telp, et_email, et_pwd, et_pwd2;
-    String namaDpn, namaBlkng, tempat, tanggal, alamat, jenisKelamin, agama, telp, email;
-    RadioGroup rg_jk, rg_agama;
+    String namaDpn, namaBlkng, tempat, tanggal, alamat,
+            jenisKelamin, agama, agama1, agama2, telp, email;
+    RadioGroup rg_jk, rg_agama, rg_agama1, rg_agama2;
     Button btn_kembali, btn_daftar;
     AwesomeValidation validation;
 
@@ -66,6 +68,8 @@ public class MainActivity extends AppCompatActivity {
 
         rg_jk          = (RadioGroup) findViewById(R.id.group_jk);
         rg_agama       = (RadioGroup) findViewById(R.id.group_agama);
+        rg_agama1      = (RadioGroup) findViewById(R.id.group_agama1);
+        rg_agama2      = (RadioGroup) findViewById(R.id.group_agama2);
 
         btn_kembali    = (Button)findViewById(R.id.kembali);
         btn_daftar     = (Button)findViewById(R.id.daftar);
@@ -88,6 +92,8 @@ public class MainActivity extends AppCompatActivity {
         alamat          = et_alamat.getText().toString();
         jenisKelamin    = rg_jk.getTransitionName();
         agama           = rg_agama.getTransitionName();
+        agama1          = rg_agama1.getTransitionName();
+        agama2          = rg_agama2.getTransitionName();
         telp            = et_telp.getText().toString();
         email           = et_email.getText().toString();
 
@@ -162,6 +168,54 @@ public class MainActivity extends AppCompatActivity {
                 System.exit(0);
             }
         });
+    }
+
+    public void onRadioButtonClicked(View view){
+        boolean checked = ((RadioButton) view).isChecked();
+        switch (view.getId()){
+            case R.id.rb_islam:
+                if (checked){
+                    agama = "Islam";
+                    rg_agama2.clearCheck();
+                }
+                break;
+            case R.id.rb_kristen:
+                if (checked){
+                    agama = "Kristen";
+                    rg_agama1.clearCheck();
+                }
+                break;
+            case R.id.rb_katolik:
+                if (checked){
+                    agama = "Katholik";
+                    rg_agama2.clearCheck();
+                }
+                break;
+            case R.id.rb_hindu:
+                if (checked){
+                    agama = "Hindu";
+                    rg_agama1.clearCheck();
+                }
+                break;
+            case R.id.rb_budha:
+                if (checked){
+                    agama = "BUdha";
+                    rg_agama2.clearCheck();
+                }
+                break;
+            case R.id.rb_konghucu:
+                if (checked){
+                    agama = "Konghucu";
+                    rg_agama1.clearCheck();
+                }
+                break;
+            case R.id.rb_aliran_kepercayaan:
+                if (checked){
+                    agama = "Aliran Kepercayaan";
+                    rg_agama2.clearCheck();
+                }
+                break;
+        }
     }
 
     private void updateLabel() {

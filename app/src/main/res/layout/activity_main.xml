@@ -198,6 +198,7 @@
                         android:layout_width="165dp"
                         android:layout_height="wrap_content"
                         android:text="Islam"
+                        android:onClick="onRadioButtonClicked"
                         android:padding="5dp" />
 
                     <RadioButton
@@ -205,6 +206,7 @@
                         android:layout_width="165dp"
                         android:layout_height="wrap_content"
                         android:text="Katolik"
+                        android:onClick="onRadioButtonClicked"
                         android:padding="5dp" />
 
                     <RadioButton
@@ -212,6 +214,7 @@
                         android:layout_width="165dp"
                         android:layout_height="wrap_content"
                         android:text="Budha"
+                        android:onClick="onRadioButtonClicked"
                         android:padding="5dp" />
 
                     <RadioButton
@@ -219,6 +222,7 @@
                         android:layout_width="180dp"
                         android:layout_height="wrap_content"
                         android:text="Aliran Kepercayaan"
+                        android:onClick="onRadioButtonClicked"
                         android:padding="5dp" />
                 </RadioGroup>
 
@@ -235,6 +239,7 @@
                         android:layout_width="165dp"
                         android:layout_height="wrap_content"
                         android:text="Kristen"
+                        android:onClick="onRadioButtonClicked"
                         android:padding="5dp" />
 
                     <RadioButton
@@ -242,6 +247,7 @@
                         android:layout_width="165dp"
                         android:layout_height="wrap_content"
                         android:text="Hindu"
+                        android:onClick="onRadioButtonClicked"
                         android:padding="5dp" />
 
                     <RadioButton
@@ -249,6 +255,7 @@
                         android:layout_width="165dp"
                         android:layout_height="wrap_content"
                         android:text="Konghucu"
+                        android:onClick="onRadioButtonClicked"
                         android:padding="5dp" />
 
                 </RadioGroup>
