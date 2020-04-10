@@ -28,8 +28,7 @@ import java.util.Calendar;
 import java.util.Locale;
 import java.util.regex.Pattern;
 
-public class MainActivity extends AppCompatActivity {
-    public static final String EXTRA_TEXT = "com.example.application.example.EXTRA_TEXT";
+public class MainActivity extends AppCompatActivity{
     private static final Pattern PASSWORD =
             Pattern.compile("^" +
                     "(?=.*[A-Z])" +             //minimal 1 huruf besar
@@ -45,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
     EditText et_namadpn, et_namablkng, et_tmpt, et_tgl,
             et_alamat, et_telp, et_email, et_pwd, et_pwd2;
     String namaDpn, namaBlkng, tempat, tanggal, alamat,
-            jenisKelamin, agama, agama1, agama2, telp, email;
+            jenisKelamin, agama, telp, email;
     RadioGroup rg_jk, rg_agama, rg_agama1, rg_agama2;
     RadioButton rb_lk, rb_pr, rb_islam, rb_kristen, rb_katolik,
             rb_hindu, rb_budha, rb_konghucu, rb_alKep;
@@ -58,51 +57,33 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         //id di activity_main.xml
-        et_namadpn     = (EditText) findViewById(R.id.nm_dpn);
-        et_namablkng   = (EditText) findViewById(R.id.nm_blkng);
-        et_tmpt        = (EditText) findViewById(R.id.tmpt_lahir);
-        et_tgl         = (EditText) findViewById(R.id.tgl_lahir);
-        et_alamat      = (EditText) findViewById(R.id.alamat);
-        et_telp        = (EditText) findViewById(R.id.telepon);
-        et_email       = (EditText) findViewById(R.id.email);
-        et_pwd         = (EditText) findViewById(R.id.addPassword);
-        et_pwd2        = (EditText) findViewById(R.id.addConfirmPassword);
+        et_namadpn     = findViewById(R.id.nm_dpn);
+        et_namablkng   = findViewById(R.id.nm_blkng);
+        et_tmpt        = findViewById(R.id.tmpt_lahir);
+        et_tgl         = findViewById(R.id.tgl_lahir);
+        et_alamat      = findViewById(R.id.alamat);
+        et_telp        = findViewById(R.id.telepon);
+        et_email       = findViewById(R.id.email);
+        et_pwd         = findViewById(R.id.addPassword);
+        et_pwd2        = findViewById(R.id.addConfirmPassword);
 
-        rg_jk          = (RadioGroup) findViewById(R.id.group_jk);
-        rg_agama       = (RadioGroup) findViewById(R.id.group_agama);
-        rg_agama1      = (RadioGroup) findViewById(R.id.group_agama1);
-        rg_agama2      = (RadioGroup) findViewById(R.id.group_agama2);
+        rg_jk          = findViewById(R.id.group_jk);
+        rg_agama       = findViewById(R.id.group_agama);
+        rg_agama1      = findViewById(R.id.group_agama1);
+        rg_agama2      = findViewById(R.id.group_agama2);
 
-        rb_lk          = (RadioButton) findViewById(R.id.lk);
-        rb_pr          = (RadioButton) findViewById(R.id.pr);
-        rb_islam       = (RadioButton) findViewById(R.id.islam);
-        rb_kristen     = (RadioButton) findViewById(R.id.kristen);
-        rb_katolik     = (RadioButton) findViewById(R.id.katolik);
-        rb_hindu       = (RadioButton) findViewById(R.id.hindu);
-        rb_budha       = (RadioButton) findViewById(R.id.budha);
-        rb_alKep       = (RadioButton) findViewById(R.id.aliran_kepercayaan);
+        rb_lk          = findViewById(R.id.lk);
+        rb_pr          = findViewById(R.id.pr);
+        rb_islam       = findViewById(R.id.islam);
+        rb_kristen     = findViewById(R.id.kristen);
+        rb_katolik     = findViewById(R.id.katolik);
+        rb_hindu       = findViewById(R.id.hindu);
+        rb_budha       = findViewById(R.id.budha);
+        rb_konghucu    = findViewById(R.id.konghucu);
+        rb_alKep       = findViewById(R.id.aliran_kepercayaan);
 
-        btn_kembali    = (Button)findViewById(R.id.kembali);
-        btn_daftar     = (Button)findViewById(R.id.daftar);
-
-        //id di detail_pendaftaran.xml
-//        tv_NamaDepan    = (TextView) findViewById(R.id.hasil_nmDepan);
-//        tv_NamaBelakang = (TextView) findViewById(R.id.hasil_nmBelakang);
-//        tv_TTL          = (TextView) findViewById(R.id.hasil_ttl);
-//        tv_Alamat       = (TextView) findViewById(R.id.hasil_alamat);
-//        tv_JK           = (TextView) findViewById(R.id.hasil_jk);
-//        tv_Agama        = (TextView) findViewById(R.id.hasil_agama);
-//        tv_NoTelp       = (TextView) findViewById(R.id.hasil_noTelp);
-//        tv_Email        = (TextView) findViewById(R.id.hasil_email);
-
-        //mengambil data dari editText di activity_main
-        namaDpn         = et_namadpn.getText().toString();
-        namaBlkng       = et_namablkng.getText().toString();
-        tempat          = et_tmpt.getText().toString();
-        tanggal         = et_tgl.getText().toString();
-        alamat          = et_alamat.getText().toString();
-        telp            = et_telp.getText().toString();
-        email           = et_email.getText().toString();
+        btn_kembali    = findViewById(R.id.kembali);
+        btn_daftar     = findViewById(R.id.daftar);
 
         jenisKelamin = "";
         agama        = "";
@@ -163,10 +144,9 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view){
                 //showDialog();
                 if (validation.validate()){
-                    showDialog();
+                    get_Text();
                 }
                 else{
-                    validasiRadioGroup();
                     Toast.makeText(getApplicationContext(),
                             "Mohon Isi Data Yang Kosong",Toast.LENGTH_SHORT).show();
                 }
@@ -179,15 +159,6 @@ public class MainActivity extends AppCompatActivity {
                 System.exit(0);
             }
         });
-    }
-
-    public void validasiRadioGroup(){
-        if (jenisKelamin.equals("")){
-            pesanErrorJK();
-        }
-        else if (agama.equals("")){
-            pesanErrorAgama();
-        }
     }
 
     public void pesanErrorJK(){
@@ -223,22 +194,6 @@ public class MainActivity extends AppCompatActivity {
         AlertDialog alertDialog = alertDialogBuilder.create();
         alertDialog.show();
     }
-
-//    public void onRadioButtonClicked1(View view){
-//        boolean checked = ((RadioButton) view).isChecked();
-//        switch (view.getId()){
-//            case R.id.rb_lk:
-//                if (checked){
-//                    jenisKelamin = "Laki-laki";
-//                }
-//                break;
-//            case R.id.rb_pr:
-//                if (checked){
-//                    jenisKelamin = "Perempuan";
-//                }
-//                break;
-//        }
-//    }
 
     public void onRadioButtonClicked(View view){
         boolean checked = ((RadioButton) view).isChecked();
@@ -285,6 +240,17 @@ public class MainActivity extends AppCompatActivity {
                     rg_agama2.clearCheck();
                 }
                 break;
+
+            case R.id.lk:
+                if (checked){
+                    jenisKelamin = "Laki-laki";
+                }
+                break;
+            case R.id.pr:
+                if (checked){
+                    jenisKelamin = "Perempuan";
+                }
+                break;
         }
     }
 
@@ -292,6 +258,26 @@ public class MainActivity extends AppCompatActivity {
         String myFormat = "dd-MM-yyyy";
         SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
         et_tgl.setText(sdf.format(myCalendar.getTime()));
+    }
+
+    public void get_Text(){
+        namaDpn = et_namadpn.getText().toString();
+        namaBlkng = et_namablkng.getText().toString();
+        tempat = et_tmpt.getText().toString();
+        tanggal = et_tgl.getText().toString();
+        alamat = et_alamat.getText().toString();
+        telp = et_telp.getText().toString();
+        email = et_email.getText().toString();
+
+        if (jenisKelamin.equals("")){
+            pesanErrorJK();
+        }
+        else if (agama.equals("")){
+            pesanErrorAgama();
+        }
+        else{
+            showDialog();
+        }
     }
 
     private void showDialog() {

@@ -56,7 +56,7 @@
                             android:layout_height="wrap_content"
                             android:ems="10"
                             android:hint="Nama Depan"
-                            android:inputType="textPersonName"
+                            android:inputType="text"
                             android:textColor="@color/txt"/>
                     </com.google.android.material.textfield.TextInputLayout>
 
@@ -70,7 +70,7 @@
                             android:layout_height="wrap_content"
                             android:ems="10"
                             android:hint="Nama Belakang"
-                            android:inputType="textPersonName"
+                            android:inputType="text"
                             android:textColor="@color/txt" />
                     </com.google.android.material.textfield.TextInputLayout>
                 </TableRow>
@@ -156,14 +156,15 @@
                     android:layout_width="180dp"
                     android:layout_height="wrap_content"
                     android:textSize="14dp"
+                    android:onClick="onRadioButtonClicked"
                     android:text="Laki-laki"/>
                 <RadioButton
                     android:id="@+id/pr"
                     android:layout_width="180dp"
                     android:layout_height="wrap_content"
                     android:textSize="14dp"
+                    android:onClick="onRadioButtonClicked"
                     android:text="Perempuan"/>
-
             </RadioGroup>
 
             <TextView
@@ -281,7 +282,7 @@
                         android:ems="10"
                         android:autofillHints="Telepon"
                         android:hint="Telepon"
-                        android:inputType="number"
+                        android:inputType="phone"
                         android:textColor="@color/txt"/>
                 </com.google.android.material.textfield.TextInputLayout>
 
